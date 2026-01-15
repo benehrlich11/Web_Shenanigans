@@ -6,18 +6,20 @@
 
     <style>
         body {
+            margin: 0;
             background-color: lightgray;
             font-family: Arial, sans-serif;
         }
 
         h1 {
             text-align: center;
+            margin-top: 20px;
         }
 
         .container {
             display: flex;
-            align-items: flex-start; /* aligns top edges */
-            gap: 20px; /* space between left and right */
+            align-items: flex-start;
+            gap: 20px;
             padding: 20px;
         }
 
@@ -26,6 +28,12 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            flex-shrink: 0; /* prevents shrinking */
+        }
+
+        .left img {
+            max-width: 100%;
+            height: auto;
         }
 
         .menu {
@@ -40,17 +48,31 @@
             cursor: pointer;
         }
 
-        /* Right side: video */
-        .right iframe {
-            max-width: 100%;
-            height: auto;
+        /* Right side: HUGE video */
+        .right {
+            flex-grow: 1; /* fills remaining horizontal space */
+            position: relative;
+            height: 90vh; /* almost full viewport height */
         }
 
-        /* Optional: make layout mobile-friendly */
+        .right iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Mobile-friendly layout */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .right {
+                width: 100%;
+                height: 50vh; /* smaller on mobile */
             }
         }
     </style>
@@ -64,7 +86,7 @@
 
         <!-- Left side: image + menu -->
         <div class="left">
-            <img src="Library_of_Babel.png" alt="AI Borges" width="300">
+            <img src="Library_of_Babel.png" alt="AI Borges">
 
             <div class="menu">
                 <p>Collected Work</p>
@@ -73,11 +95,9 @@
             </div>
         </div>
 
-        <!-- Right side: YouTube video -->
+        <!-- Right side: HUGE YouTube video -->
         <div class="right">
             <iframe
-                width="360"
-                height="215"
                 src="https://www.youtube.com/embed/JE_hYojg90o"
                 title="YouTube video"
                 frameborder="0"
