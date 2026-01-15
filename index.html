@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Ben's Website</title>
@@ -14,8 +16,33 @@
             gap: 20px;
         }
 
-        .underline {
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu p {
+            margin: 0;
             text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
+
+<body>
+
+    <h1>Ben Ehrlich</h1>
+
+    <div class="container">
+        <img src="Library_of_Babel.png" alt="AI Borges" width="300">
+
+        <div class="menu">
+            <p>Collected Work</p>
+            <p>Bio</p>
+            <p>Contact</p>
+        </div>
+    </div>
+
+</body>
+</html>
